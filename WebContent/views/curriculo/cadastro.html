@@ -1,0 +1,220 @@
+<div class="animated fadeIn" ng-controller="CurriculoCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Incluir Curriculo</strong>
+                </div>
+                <div class="card-block">
+                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                        <p><strong><em>Dados pessoais</em></strong></p>
+
+                        <!-- Nome -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-nome">Nome</label>
+                            <div class="col-md-9">
+                              <input type="text" id="curriculo-nome" name="curriculo-nome" class="form-control" placeholder="Digite o seu nome completo">
+                            </div>
+                        </div>
+
+                        <!-- Data de nascimento -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-nascimento">Data de nascimento</label>
+                            <div class="col-md-9">
+                                <input type="text" id="curriculo-nascimento" name="curriculo-nascimento" class="form-control" placeholder="Digite a data de nascimento Ex.: 01/01/1980">
+                            </div>
+                        </div>
+
+                        <!-- Estado civil -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-civil">Estado civil</label>
+                            <div class="col-md-9">
+                              <select class="form-control">
+                                <option value="">Selecione</option>
+                                <option value="S">Solteiro</option>
+                                <option value="C">Casado</option>
+                                <option value="V">Vi&uacute;vo</option>
+                                <option value="D">Divorciado</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <!-- Filhos -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-filhos">Filhos?</label>
+                            <div class="col-md-9">
+                              <select class="form-control">
+                                <option value="">Selecione</option>
+                                <option value="S">Sim</option>
+                                <option value="N">N&atilde;o</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <p><strong><em>Endere&ccedil;o</em></strong></p>
+
+                        <!-- CEP -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-cep">CEP</label>
+                            <div class="col-md-6">
+                                <input type="text" ng-model="cep" id="curriculo-cep" name="curriculo-cep" class="form-control" placeholder="Digite seu CEP">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" ng-click="findCep(cep)" class="btn btn-primary"><i class="icon-magnified"></i>&nbsp; Busca CEP</button>
+                            </div>
+                        </div>
+
+                        <!-- Logradouro -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco">Logradouro</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="logradouro" id="curriculo-endereco" name="curriculo-endereco" class="form-control" placeholder="Ex.: Av. Nossa Senhora de Copacabana">
+                            </div>
+                        </div>
+
+                        <!-- Numero -->
+                        <div class="form-group row" >
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco-numero">N&uacute;mero</label>
+                            <div class="col-md-9">
+                                <input type="text" id="curriculo-endereco-numero" name="curriculo-endereco-numero" class="form-control" placeholder="Digite o n&uacute;mero Ex.: 1109">
+                            </div>
+                        </div>
+
+                        <!-- Complemento -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco-complemento">Complemento</label>
+                            <div class="col-md-9">
+                                <input type="text" id="curriculo-endereco-complemento" name="curriculo-endereco-complemento" class="form-control" placeholder="Digite o complemento do endere&ccedil;o Ex.: Bloco 2 Apt 1001">
+                            </div>
+                        </div>
+
+                        <!-- Bairro -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco-bairro">Bairro</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="bairro" id="curriculo-endereco-bairro" name="curriculo-endereco-bairro" class="form-control" placeholder="Digite seu bairro. Ex.: Copacabana">
+                            </div>
+                        </div>
+
+                        <!-- Municipio -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco-municipio">Munic&iacute;pio</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="localidade" id="curriculo-endereco-municipio" name="curriculo-endereco-municipio" class="form-control" placeholder="Digite seu municipio. Ex.: Rio de Janeiro">
+                            </div>
+                        </div>
+
+                        <!-- UF -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-endereco-uf">UF</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="uf" id="curriculo-endereco-uf" name="curriculo-endereco-uf" class="form-control" placeholder="Digite a UF. Ex.: RJ">
+                            </div>
+                        </div>
+
+
+                        <p><strong><em>Telefone</em></strong></p>
+
+                        <!-- DDD -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-telefone-ddd">DDD</label>
+                            <div class="col-md-9">
+                                <input type="text" id="curriculo-telefone-ddd" name="curriculo-telefone-ddd" class="form-control" placeholder="Digite o c&oacute;digo DDD Ex.: 21">
+                            </div>
+                        </div>
+
+                        <!-- telefone -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-telefone">Telefone</label>
+                            <div class="col-md-9">
+                                <input type="text" id="curriculo-telefone" name="curriculo-telefone" class="form-control" placeholder="Digite seu telefone (somente n&uacute;meros) Ex.: 98762345">
+                            </div>
+                        </div>
+
+                        <p><strong><em>Escolaridade</em></strong></p>
+
+                        <!-- Escolaridade -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-escolaridade">N&iacute;vel de escolaridade</label>
+                            <div class="col-md-9">
+                              <select class="form-control">
+                                <option value="">Selecione</option>
+                                <option ng-repeat="nivel in niveisEscolaridade" value="{{nivel.codigo}}">{{nivel.descricao}}</<option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <p><strong><em>Cursos</em></strong></p>
+
+                        <!-- Formações -->
+
+                        <!-- Instituição -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-instituicao">Institui&ccedil;&atilde;o</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="curso.instituicao" id="curriculo-instituicao" name="curriculo-instituicao" class="form-control" placeholder="Digite o nome da instituiçao">
+                            </div>
+                        </div>
+
+                        <!-- Curso -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-curso">Curso</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="curso.nome" id="curriculo-curso" name="curriculo-curso" class="form-control" placeholder="Digite o nome do curso">
+                            </div>
+                        </div>
+
+                        <!-- Data de conclusão -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-curso-conclusao">Data de conclus&atilde;o</label>
+                            <div class="col-md-6">
+                                <input type="text" ng-model="curso.conclusao" id="curriculo-curso-conclusao" name="curriculo-curso-conclusao" class="form-control" placeholder="Digite a data de conclusão no formato: DD/MM/AAAA">
+                            </div>
+                        </div>
+
+                        <!-- Tipo -->
+                        <div class="form-group row">
+                            <label class="col-md-3 form-control-label" for="curriculo-curso-tipo">Tipo</label>
+                            <div class="col-md-6">
+                                <select ng-model="curso.tipo" class="form-control">
+                                  <option value="">Selecione</option>
+                                  <option ng-repeat="tipo in tipoCursos" value="{{tipo.descricao}}">{{tipo.descricao}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" ng-click="adicionarCurso(curso)" class="btn btn-primary"><i class="icon-plus"></i>&nbsp; Adicionar</button>
+                            </div>
+
+                        </div>
+                        
+                        <table class="table table-hover table-outline mb-0 table-striped table-responsive" id="table-formacoes">        
+
+                            <thead class="thead-default">
+                                <tr>
+                                    <th>Institui&ccedil;&atilde;o</th>
+                                    <th>Curso</th>
+                                    <th>Data de conclus&atilde;o</th>
+                                    <th>Tipo</th>
+                                </tr>
+                            </thead>
+                            <tbody>                              
+                                <tr ng-repeat="curso in listaCursos">
+                                  <td>{{curso.instituicao}}</td>
+                                  <td>{{curso.nome}}</td>
+                                  <td>{{curso.conclusao}}</td>
+                                  <td>{{curso.tipo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Confirmar</button>
+                    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancelar</button>
+                </div>
+            </div>
+    </div>
+    <!--/.row-->
+</div>
